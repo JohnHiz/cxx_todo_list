@@ -25,7 +25,7 @@ brew install git cmake ninja
 ## Downloading
 
 ```bash
-git clone https://github.com/JohnVasil-ev/cxx_todo_list.git
+git clone https://github.com/JohnHiz/cxx_todo_list.git
 ```
 
 ## Configuration
@@ -45,7 +45,7 @@ See [stackoverflow](https://stackoverflow.com/questions/48754619/what-are-cmake-
 ## Building
 
 ```bash
-NUMBER_OF_CPUS=$(($(grep '^cpu cores' /proc/cpuinfo | wc --lines) - 2))  # Linux
+NUMBER_OF_CPUS=$(`nproc` - 2)                                            # Linux
 NUMBER_OF_CPUS=$(expr $(sysctl -n hw.ncpu) - 2)                          # MacOS
 
 cmake --build ${BUILD_DIR} --config ${CMAKE_CONFIG} --parallel ${NUMBER_OF_CPUS}
